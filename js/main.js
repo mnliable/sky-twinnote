@@ -115,79 +115,7 @@ class PhotoGallery {
     }
 }
 
-// Contact Form Handler
-class ContactForm {
-    constructor() {
-        this.form = document.getElementById('contactForm');
-        this.init();
-    }
 
-    init() {
-        if (this.form) {
-            this.form.addEventListener('submit', this.handleSubmit.bind(this));
-        }
-    }
-
-    async handleSubmit(e) {
-        e.preventDefault();
-        
-        const formData = new FormData(this.form);
-        const submitButton = this.form.querySelector('button[type="submit"]');
-        const originalText = submitButton.textContent;
-        
-        // Show loading state
-        submitButton.textContent = 'Sending...';
-        submitButton.disabled = true;
-        
-        try {
-            // Simulate form submission
-            await this.simulateSubmission(formData);
-            
-            // Show success message
-            this.showMessage('Thank you! Your message has been sent successfully.', 'success');
-            this.form.reset();
-            
-        } catch (error) {
-            // Show error message
-            this.showMessage('Sorry, there was an error sending your message. Please try again.', 'error');
-        } finally {
-            // Reset button state
-            submitButton.textContent = originalText;
-            submitButton.disabled = false;
-        }
-    }
-
-    async simulateSubmission(formData) {
-        // Simulate API call delay
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                // In a real implementation, you would send this to your server
-                console.log('Form data:', Object.fromEntries(formData));
-                resolve();
-            }, 1500);
-        });
-    }
-
-    showMessage(message, type) {
-        // Remove existing messages
-        const existingMessage = document.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-
-        // Create and show new message
-        const messageDiv = document.createElement('div');
-        messageDiv.className = `form-message ${type}`;
-        messageDiv.textContent = message;
-        
-        this.form.appendChild(messageDiv);
-        
-        // Auto-remove after 5 seconds
-        setTimeout(() => {
-            messageDiv.remove();
-        }, 5000);
-    }
-}
 
 // Audio Player Enhancement
 class AudioPlayer {
@@ -303,9 +231,14 @@ class LazyLoader {
 // Initialize all components when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new PhotoGallery();
-    new ContactForm();
     new AudioPlayer();
     new LazyLoader();
+    
+    // Set current year in footer
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
     
     // Add CSS for custom audio controls
     const style = document.createElement('style');
@@ -357,24 +290,7 @@ document.addEventListener('DOMContentLoaded', () => {
             text-align: center;
         }
         
-        .form-message {
-            padding: 12px;
-            border-radius: 8px;
-            margin-top: 15px;
-            text-align: center;
-        }
-        
-        .form-message.success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-        
-        .form-message.error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-        }
+
     `;
     document.head.appendChild(style);
 });
