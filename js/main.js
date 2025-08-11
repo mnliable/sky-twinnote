@@ -54,8 +54,7 @@ class PhotoGallery {
     }
 
     async loadPhotos() {
-        // Simulate loading photos from a directory
-        // In a real implementation, you would load these from your server
+        // Load actual photos from the images directory
         this.photos = [
             {
                 src: 'images/photo-1.jpg',
