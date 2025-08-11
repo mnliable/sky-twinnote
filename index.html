@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Wyatt - Electronic Press Kit</title>
+    <meta name="description" content="Official Electronic Press Kit for Sky Wyatt - Singer, Songwriter, and Performer">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Lightbox CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.min.css">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h1>Sky Wyatt</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#music" class="nav-link">Music</a></li>
+                <li><a href="#photos" class="nav-link">Photos</a></li>
+                <li><a href="#videos" class="nav-link">Videos</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Sky Wyatt</h1>
+            <p class="hero-subtitle">Singer • Songwriter • Performer</p>
+            <div class="hero-buttons">
+                <a href="#music" class="btn btn-primary">Listen Now</a>
+                <a href="#photos" class="btn btn-secondary">View Photos</a>
+            </div>
+        </div>
+        <div class="hero-background"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Sky Wyatt</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Sky Wyatt is a talented singer, songwriter, and performer whose music transcends genres and connects with audiences on a deep, emotional level. With a unique voice and compelling storytelling ability, Sky creates music that resonates with listeners worldwide.</p>
+                    <p>Drawing inspiration from life experiences and personal growth, Sky's music explores themes of love, resilience, and the human condition. Each song is crafted with care, blending heartfelt lyrics with memorable melodies.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3>100+</h3>
+                        <p>Live Performances</p>
+                    </div>
+                    <div class="stat">
+                        <h3>50+</h3>
+                        <p>Original Songs</p>
+                    </div>
+                    <div class="stat">
+                        <h3>10+</h3>
+                        <p>Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="music">
+        <div class="container">
+            <h2 class="section-title">Latest Music</h2>
+            <div class="music-grid">
+                <div class="music-item">
+                    <div class="music-cover">
+                        <img src="images/music-cover-1.jpg" alt="Dust Settles Album Cover">
+                    </div>
+                    <div class="music-info">
+                        <h3>Dust Settles</h3>
+                        <p>Latest single release</p>
+                        <audio controls>
+                            <source src="SKY - DUST SETTLES.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-item">
+                    <div class="music-cover">
+                        <img src="images/music-cover-2.jpg" alt="Good Vibes Album Cover">
+                    </div>
+                    <div class="music-info">
+                        <h3>Good Vibes</h3>
+                        <p>Feel-good anthem</p>
+                        <audio controls>
+                            <source src="SKY - GOOD VIBES.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+                <div class="music-item">
+                    <div class="music-cover">
+                        <img src="images/music-cover-3.jpg" alt="Old School Album Cover">
+                    </div>
+                    <div class="music-info">
+                        <h3>Old School</h3>
+                        <p>Classic vibes</p>
+                        <audio controls>
+                            <source src="SKY - OLD SCHOOL.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                </div>
+                </div>
+                <div class="music-item">
+                    <div class="music-cover">
+                        <img src="images/music-cover-4.jpg" alt="Steady Love Album Cover">
+                    </div>
+                    <div class="music-info">
+                        <h3>Steady Love</h3>
+                        <p>Romantic ballad</p>
+                        <audio controls>
+                            <source src="SKY - STEADY.m4a" type="audio/mp4">
+                            Your browser does not support the audio element.
+                        </audio>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos Section -->
+    <section id="photos" class="photos">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="photo-grid" id="photoGrid">
+                <!-- Photos will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Videos Section -->
+    <section id="videos" class="videos">
+        <div class="container">
+            <h2 class="section-title">Videos</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Sky Wyatt - Good Vibes (Official Video)" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3>Good Vibes (Official Video)</h3>
+                    <p>Official music video for "Good Vibes"</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Sky Wyatt - Steady Love (Official Video)" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3>Steady Love (Official Video)</h3>
+                    <p>Official music video for "Steady Love"</p>
+                </div>
+                <div class="video-item">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                                title="Sky Wyatt - Project Reel Talk" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <h3>Project Reel Talk</h3>
+                    <p>Behind the scenes and project insights</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Booking & Inquiries</h3>
+                    <p>For booking, press inquiries, or general questions, please reach out:</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <strong>Email:</strong>
+                            <a href="mailto:booking@skywyatt.com">booking@skywyatt.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Management:</strong>
+                            <span>MN Creative & Co.</span>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Location:</strong>
+                            <span>Los Angeles, CA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sky Wyatt</h3>
+                    <p>Creating music that moves the soul</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#music">Music</a></li>
+                        <li><a href="#photos">Photos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">YouTube</a>
+                        <a href="#" class="social-link">Spotify</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sky Wyatt. All rights reserved. | MN Creative & Co.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

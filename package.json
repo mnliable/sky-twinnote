@@ -1,0 +1,35 @@
+{
+  "name": "sky-wyatte-epk",
+  "version": "1.0.0",
+  "description": "Electronic Press Kit for Sky Wyatt - Singer, Songwriter, and Performer",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Build process not implemented yet'",
+    "test": "echo 'Tests not implemented yet'"
+  },
+  "keywords": [
+    "epk",
+    "music",
+    "artist",
+    "press-kit",
+    "sky-wyatt"
+  ],
+  "author": "MN Creative & Co.",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mnliable/sky-twinnote.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mnliable/sky-twinnote/issues"
+  },
+  "homepage": "https://github.com/mnliable/sky-twinnote#readme",
+  "devDependencies": {},
+  "dependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
