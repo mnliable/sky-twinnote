@@ -285,6 +285,46 @@
             transform: scale(1.05);
         }
         
+        /* Video thumbnails specific styling */
+        .photo-item[onclick*="openVideo"] {
+            position: relative;
+        }
+        
+        .photo-item[onclick*="openVideo"]::after {
+            content: '▶';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .photo-item[onclick*="openVideo"]:hover::after {
+            opacity: 1;
+        }
+        
+        .photo-item[onclick*="openVideo"]::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            pointer-events: none;
+        }
+        
+        .photo-item[onclick*="openVideo"]:hover::before {
+            opacity: 1;
+        }
+        
         /* Enhanced Lightbox Styles */
         .lightbox {
             display: none;
@@ -658,13 +698,22 @@
             <h2 class="section-title">VIDEOS</h2>
             <div class="photo-gallery">
                 <div class="photo-item">
-                    <img src="images/skywyatt-goodvibes.jpg" alt="Good Vibes Official Video" onclick="openVideo('https://www.youtube.com/embed/t8Q1YVN2Y24')">
+                    <img src="https://img.youtube.com/vi/t8Q1YVN2Y24/maxresdefault.jpg" 
+                         alt="Good Vibes Official Video" 
+                         onclick="openVideo('https://www.youtube.com/embed/t8Q1YVN2Y24')"
+                         onerror="this.src='https://img.youtube.com/vi/t8Q1YVN2Y24/hqdefault.jpg'">
                 </div>
                 <div class="photo-item">
-                    <img src="images/skywyatt-steadylove.jpg" alt="Steady Love Official Video" onclick="openVideo('https://www.youtube.com/embed/wRWgdUcysuk')">
+                    <img src="https://img.youtube.com/vi/wRWgdUcysuk/maxresdefault.jpg" 
+                         alt="Steady Love Official Video" 
+                         onclick="openVideo('https://www.youtube.com/embed/wRWgdUcysuk')"
+                         onerror="this.src='https://img.youtube.com/vi/wRWgdUcysuk/hqdefault.jpg'">
                 </div>
                 <div class="photo-item">
-                    <img src="images/skywyatt-dustsettles.jpg" alt="Project Reel Talk" onclick="openVideo('https://www.youtube.com/embed/KqNbee5xEgs')">
+                    <img src="https://img.youtube.com/vi/KqNbee5xEgs/maxresdefault.jpg" 
+                         alt="Project Reel Talk" 
+                         onclick="openVideo('https://www.youtube.com/embed/KqNbee5xEgs')"
+                         onerror="this.src='https://img.youtube.com/vi/KqNbee5xEgs/hqdefault.jpg'">
                 </div>
             </div>
         </section>
