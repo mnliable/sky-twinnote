@@ -220,6 +220,21 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
 }
 
+.about-cta {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.about-cta p {
+    margin-top: 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
 /* Music Section */
 .music {
     padding: 100px 0;

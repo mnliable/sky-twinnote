@@ -168,7 +168,7 @@ python -m http.server 8000
 - **PROJECT_SUMMARY.md**: This overview document
 
 ### Technical Support
-- MN Creative & Co. development team
+- Twin Note Music development team
 - GitHub repository for version control
 - Comprehensive documentation
 - Code comments for easy maintenance

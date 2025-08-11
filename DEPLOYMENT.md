@@ -204,4 +204,4 @@ For deployment issues:
 1. Check hosting provider documentation
 2. Review error logs
 3. Test locally first
-4. Contact MN Creative & Co. for assistance
+4. Contact Twin Note Music for assistance

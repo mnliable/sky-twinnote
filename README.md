@@ -109,7 +109,7 @@ Then visit `http://localhost:8000` in your browser.
 
 For questions about this EPK or Sky Wyatt:
 - **Email**: booking@skywyatt.com
-- **Management**: MN Creative & Co.
+- **Management**: Twin Note Music
 - **Location**: Los Angeles, CA
 
 ## License
@@ -118,7 +118,7 @@ This project is proprietary and confidential. All rights reserved.
 
 ## Credits
 
-- **Design & Development**: MN Creative & Co.
+- **Design & Development**: Twin Note Music
 - **Photography**: [Photographer Name]
 - **Music**: Sky Wyatt
 - **Icons**: [Icon Source]
@@ -136,4 +136,4 @@ This project is proprietary and confidential. All rights reserved.
 
 ## Support
 
-For technical support or questions about this EPK website, please contact the development team at MN Creative & Co.
+For technical support or questions about this EPK website, please contact the development team at Twin Note Music.
