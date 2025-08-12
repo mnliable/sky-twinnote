@@ -247,6 +247,37 @@
             border-radius: 8px;
             display: block;
             background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            min-height: 50px;
+        }
+        
+        /* Make audio controls more prominent */
+        audio::-webkit-media-controls-panel {
+            background: rgba(255, 255, 255, 0.15) !important;
+            border-radius: 6px;
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            background: var(--button-color) !important;
+            border-radius: 50% !important;
+            color: white !important;
+            width: 32px !important;
+            height: 32px !important;
+        }
+        
+        audio::-webkit-media-controls-timeline {
+            background: rgba(255, 255, 255, 0.3) !important;
+            border-radius: 3px;
+        }
+        
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: white !important;
+            font-weight: bold;
+        }
+        
+        audio::-webkit-media-controls-volume-slider {
+            background: rgba(255, 255, 255, 0.3) !important;
         }
         
         /* Ensure audio controls are visible */
@@ -731,8 +762,8 @@
                     <h3 class="album-title">Dust Settles</h3>
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
-                        <source src="songs/SKY - DUST SETTLES.mp3" type="audio/mpeg">
-                        <source src="songs/SKY - DUST SETTLES.mp3" type="audio/mp3">
+                        <source src="songs/SKY-DUSTSETTLES.mp3" type="audio/mpeg">
+                        <source src="songs/SKY-DUSTSETTLES.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -745,8 +776,8 @@
                     <h3 class="album-title">Good Vibes</h3>
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata" style="width: 100%;">
-                        <source src="songs/SKY - GOOD VIBES.wav" type="audio/wav">
-                        <source src="songs/SKY - GOOD VIBES.wav" type="audio/wave">
+                        <source src="songs/SKY-GOODVIBES.wav" type="audio/wav">
+                        <source src="songs/SKY-GOODVIBES.wav" type="audio/wave">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -759,8 +790,8 @@
                     <h3 class="album-title">Old School</h3>
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
-                        <source src="songs/SKY - OLD SCHOOL.mp3" type="audio/mpeg">
-                        <source src="songs/SKY - OLD SCHOOL.mp3" type="audio/mp3">
+                        <source src="songs/SKY-OLDSCHOOL.mp3" type="audio/mpeg">
+                        <source src="songs/SKY-OLDSCHOOL.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -773,8 +804,8 @@
                     <h3 class="album-title">Steady Love</h3>
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
-                        <source src="songs/SKY - STEADY.m4a" type="audio/mp4">
-                        <source src="songs/SKY - STEADY.m4a" type="audio/aac">
+                        <source src="songs/SKY-STEADY.m4a" type="audio/mp4">
+                        <source src="songs/SKY-STEADY.m4a" type="audio/aac">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -787,8 +818,8 @@
                     <h3 class="album-title">Steady Love (Falsetto Bridge)</h3>
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
-                        <source src="songs/SKY - STEADY LOVE  (Falsetto Bridge).m4a" type="audio/mp4">
-                        <source src="songs/SKY - STEADY LOVE  (Falsetto Bridge).m4a" type="audio/aac">
+                        <source src="songs/SKY-STEADYLOVE-Falsetto Bridge.m4a" type="audio/mp4">
+                        <source src="songs/SKY-STEADYLOVE-Falsetto Bridge.m4a" type="audio/aac">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -989,21 +1020,63 @@
                 // Add error handling
                 audio.addEventListener('error', function(e) {
                     console.error('Audio loading error:', e);
+                    console.error('Audio source:', this.currentSrc);
+                    console.error('Audio error code:', this.error ? this.error.code : 'unknown');
                     this.style.border = '2px solid #ff4444';
+                    
+                    // Show error message to user
+                    const errorMsg = document.createElement('div');
+                    errorMsg.style.color = '#ff4444';
+                    errorMsg.style.fontSize = '12px';
+                    errorMsg.style.marginTop = '5px';
+                    errorMsg.textContent = 'Audio failed to load. Please check file path.';
+                    this.parentNode.appendChild(errorMsg);
                 });
                 
                 // Add loading state
                 audio.addEventListener('loadstart', function() {
                     this.style.opacity = '0.7';
+                    console.log('Audio loading started:', this.currentSrc);
                 });
                 
                 audio.addEventListener('canplay', function() {
                     this.style.opacity = '1';
+                    console.log('Audio can play:', this.currentSrc);
+                });
+                
+                // Add more detailed event listeners
+                audio.addEventListener('load', function() {
+                    console.log('Audio loaded successfully:', this.currentSrc);
+                });
+                
+                audio.addEventListener('abort', function() {
+                    console.log('Audio loading aborted:', this.currentSrc);
                 });
                 
                 // Ensure controls are visible
                 audio.controls = true;
                 audio.preload = 'metadata';
+                
+                // Test file accessibility
+                testAudioFile(audio);
+            });
+        }
+        
+        // Test if audio file is accessible
+        function testAudioFile(audioElement) {
+            const sources = audioElement.querySelectorAll('source');
+            sources.forEach(source => {
+                fetch(source.src)
+                    .then(response => {
+                        if (response.ok) {
+                            console.log('✅ Audio file accessible:', source.src);
+                        } else {
+                            console.error('❌ Audio file not accessible:', source.src, 'Status:', response.status);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('❌ Audio file fetch error:', source.src, error);
+                    });
             });
         }
         
