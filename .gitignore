@@ -74,11 +74,6 @@ temp/
 dist/
 build/
 
-# Audio files (keep original audio files)
-# *.mp3
-# *.wav
-# *.m4a
-
 # Video files (keep original video files)
 # *.mp4
 # *.MOV
@@ -86,9 +81,8 @@ build/
 # Large media files
 *.mp4
 *.MOV
-*.mp3
-*.wav
-*.m4a
+
+# Note: Audio files (*.mp3, *.wav, *.m4a) are now included for the website
 
 # Original photo directory
 PHOTOS/
