@@ -245,6 +245,32 @@
             width: 100%;
             margin-top: 10px;
             border-radius: 8px;
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Ensure audio controls are visible */
+        audio::-webkit-media-controls {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        audio::-webkit-media-controls-panel {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        audio::-webkit-media-controls-play-button {
+            background: var(--button-color);
+            border-radius: 50%;
+            color: white;
+        }
+        
+        audio::-webkit-media-controls-timeline {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        audio::-webkit-media-controls-current-time-display,
+        audio::-webkit-media-controls-time-remaining-display {
+            color: white;
         }
         
         /* Ensure audio player is full width on all devices */
@@ -706,6 +732,7 @@
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
                         <source src="songs/SKY - DUST SETTLES.mp3" type="audio/mpeg">
+                        <source src="songs/SKY - DUST SETTLES.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -719,6 +746,7 @@
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata" style="width: 100%;">
                         <source src="songs/SKY - GOOD VIBES.wav" type="audio/wav">
+                        <source src="songs/SKY - GOOD VIBES.wav" type="audio/wave">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -732,6 +760,7 @@
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
                         <source src="songs/SKY - OLD SCHOOL.mp3" type="audio/mpeg">
+                        <source src="songs/SKY - OLD SCHOOL.mp3" type="audio/mp3">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -745,6 +774,21 @@
                     <p class="artist-name">Sky Wyatt</p>
                     <audio controls preload="metadata">
                         <source src="songs/SKY - STEADY.m4a" type="audio/mp4">
+                        <source src="songs/SKY - STEADY.m4a" type="audio/aac">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+            </div>
+            
+            <!-- Track 5 -->
+            <div class="music-player">
+                <img src="images/skywyatt-steadylove.jpg" alt="Steady Love (Falsetto Bridge)" class="album-cover">
+                <div class="album-info">
+                    <h3 class="album-title">Steady Love (Falsetto Bridge)</h3>
+                    <p class="artist-name">Sky Wyatt</p>
+                    <audio controls preload="metadata">
+                        <source src="songs/SKY - STEADY LOVE  (Falsetto Bridge).m4a" type="audio/mp4">
+                        <source src="songs/SKY - STEADY LOVE  (Falsetto Bridge).m4a" type="audio/aac">
                         Your browser does not support the audio element.
                     </audio>
                 </div>
@@ -938,6 +982,36 @@
             counter.textContent = `${currentImageIndex + 1} / ${images.length}`;
         }
 
+        // Audio player enhancement
+        function enhanceAudioPlayers() {
+            const audioElements = document.querySelectorAll('audio');
+            audioElements.forEach(audio => {
+                // Add error handling
+                audio.addEventListener('error', function(e) {
+                    console.error('Audio loading error:', e);
+                    this.style.border = '2px solid #ff4444';
+                });
+                
+                // Add loading state
+                audio.addEventListener('loadstart', function() {
+                    this.style.opacity = '0.7';
+                });
+                
+                audio.addEventListener('canplay', function() {
+                    this.style.opacity = '1';
+                });
+                
+                // Ensure controls are visible
+                audio.controls = true;
+                audio.preload = 'metadata';
+            });
+        }
+        
+        // Initialize audio players when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            enhanceAudioPlayers();
+        });
+        
         // Video Modal functionality
         function openVideo(videoUrl) {
             const videoModal = document.getElementById('videoModal');
