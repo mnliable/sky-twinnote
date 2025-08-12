@@ -541,18 +541,11 @@
         
         #videoModal iframe {
             width: 100%;
-            height: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
             border: none;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-        }
-        
-        #videoModal .lightbox-content {
-            position: relative;
-            width: 90%;
-            max-width: 1200px;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
         }
         
         /* Biography */
@@ -927,19 +920,19 @@
                 <div class="photo-item">
                     <img src="https://img.youtube.com/vi/t8Q1YVN2Y24/maxresdefault.jpg" 
                          alt="Good Vibes Official Video" 
-                         onclick="openVideo('https://www.youtube.com/embed/t8Q1YVN2Y24')"
+                         onclick="openVideo('https://www.youtube.com/watch?v=t8Q1YVN2Y24')"
                          onerror="this.src='https://img.youtube.com/vi/t8Q1YVN2Y24/hqdefault.jpg'">
                 </div>
                 <div class="photo-item">
                     <img src="https://img.youtube.com/vi/wRWgdUcysuk/maxresdefault.jpg" 
                          alt="Steady Love Official Video" 
-                         onclick="openVideo('https://www.youtube.com/embed/wRWgdUcysuk')"
+                         onclick="openVideo('https://www.youtube.com/watch?v=wRWgdUcysuk')"
                          onerror="this.src='https://img.youtube.com/vi/wRWgdUcysuk/hqdefault.jpg'">
                 </div>
                 <div class="photo-item">
                     <img src="images/skywyatt-reeltalk_thumbnail.jpg" 
                          alt="Project Reel Talk" 
-                         onclick="openVideo('https://www.youtube.com/embed/KqNbee5xEgs')">
+                         onclick="openVideo('https://www.youtube.com/watch?v=KqNbee5xEgs')">
                 </div>
             </div>
         </section>
@@ -1150,7 +1143,14 @@
             const videoModal = document.getElementById('videoModal');
             const videoIframe = document.getElementById('video-iframe');
             
-            videoIframe.src = videoUrl;
+            // Convert YouTube watch URL to embed URL
+            let embedUrl = videoUrl;
+            if (videoUrl.includes('youtube.com/watch?v=')) {
+                const videoId = videoUrl.split('v=')[1];
+                embedUrl = `https://www.youtube.com/embed/${videoId}`;
+            }
+            
+            videoIframe.src = embedUrl;
             videoModal.style.display = 'block';
             
             // Trigger reflow for smooth animation
