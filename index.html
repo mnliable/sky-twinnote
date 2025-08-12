@@ -510,6 +510,53 @@
             z-index: 10000;
         }
         
+        /* Video Modal Specific Styles */
+        #videoModal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        #videoModal.show {
+            opacity: 1;
+        }
+        
+        #videoModal .lightbox-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 1200px;
+            height: auto;
+            text-align: center;
+        }
+        
+        #videoModal iframe {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+        
+        #videoModal iframe#video-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
         /* Biography */
         .bio-text {
             color: var(--text-color);
@@ -656,6 +703,16 @@
                 padding: 8px 16px;
             }
             
+            /* Video Modal Mobile Styles */
+            #videoModal .lightbox-content {
+                width: 95%;
+                max-width: none;
+            }
+            
+            #videoModal iframe {
+                border-radius: 8px;
+            }
+            
             .footer {
                 padding: 30px 0;
             }
@@ -700,6 +757,15 @@
             .album-info audio {
                 max-width: calc(100vw - 30px);
                 margin: 10px 0;
+            }
+            
+            /* Video Modal Small Mobile Styles */
+            #videoModal .lightbox-content {
+                width: 98%;
+            }
+            
+            #videoModal iframe {
+                border-radius: 6px;
             }
         }
         
@@ -918,7 +984,7 @@
     <div id="videoModal" class="lightbox" onclick="closeVideo()">
         <span class="lightbox-close" onclick="closeVideo()" tabindex="0" role="button" aria-label="Close video">&times;</span>
         <div class="lightbox-content" onclick="event.stopPropagation()">
-            <iframe id="video-iframe" src="" width="800" height="450" frameborder="0" allowfullscreen></iframe>
+            <iframe id="video-iframe" src="" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
         </div>
     </div>
 
