@@ -244,17 +244,17 @@
         audio {
             width: 100%;
             margin-top: 10px;
-            border-radius: 8px;
+            border-radius: 25px;
             display: block;
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
             min-height: 50px;
         }
         
-        /* Make audio controls more prominent */
+        /* Chrome/WebKit audio controls */
         audio::-webkit-media-controls-panel {
             background: rgba(255, 255, 255, 0.15) !important;
-            border-radius: 6px;
+            border-radius: 25px;
         }
         
         audio::-webkit-media-controls-play-button {
@@ -271,8 +271,8 @@
         }
         
         audio::-webkit-media-controls-current-time-display,
-        audio::-webkit-media-controls-time-remaining-display {
-            color: white !important;
+        audio::-webkit-media-controls-time-remaining-duration-display {
+            color: black !important;
             font-weight: bold;
         }
         
@@ -280,28 +280,31 @@
             background: rgba(255, 255, 255, 0.3) !important;
         }
         
-        /* Ensure audio controls are visible */
-        audio::-webkit-media-controls {
-            background: rgba(255, 255, 255, 0.1);
+        /* Firefox audio controls */
+        audio::-moz-media-controls-panel {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 25px;
         }
         
-        audio::-webkit-media-controls-panel {
-            background: rgba(255, 255, 255, 0.1);
-        }
-        
-        audio::-webkit-media-controls-play-button {
+        audio::-moz-media-controls-play-button {
             background: var(--button-color);
             border-radius: 50%;
             color: white;
         }
         
-        audio::-webkit-media-controls-timeline {
+        audio::-moz-media-controls-timeline {
             background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
         }
         
-        audio::-webkit-media-controls-current-time-display,
-        audio::-webkit-media-controls-time-remaining-display {
-            color: white;
+        audio::-moz-media-controls-current-time-display,
+        audio::-moz-media-controls-time-remaining-display {
+            color: black;
+            font-weight: bold;
+        }
+        
+        audio::-moz-media-controls-volume-slider {
+            background: rgba(255, 255, 255, 0.3);
         }
         
         /* Ensure audio player is full width on all devices */
@@ -319,15 +322,6 @@
             width: 100% !important;
             max-width: 100%;
             min-width: 100%;
-        }
-        
-        audio::-webkit-media-controls-panel {
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        audio::-webkit-media-controls-play-button {
-            background-color: var(--button-color);
-            border-radius: 50%;
         }
         
         /* Photo Gallery */
