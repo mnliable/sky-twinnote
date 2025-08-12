@@ -536,25 +536,23 @@
             transform: translate(-50%, -50%);
             width: 90%;
             max-width: 1200px;
-            height: auto;
             text-align: center;
         }
         
         #videoModal iframe {
             width: 100%;
-            height: 0;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 100%;
             border: none;
             border-radius: 12px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
         
-        #videoModal iframe#video-iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        #videoModal .lightbox-content {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
         }
         
         /* Biography */
@@ -707,6 +705,7 @@
             #videoModal .lightbox-content {
                 width: 95%;
                 max-width: none;
+                padding-bottom: 56.25%; /* Maintain 16:9 ratio */
             }
             
             #videoModal iframe {
@@ -762,6 +761,7 @@
             /* Video Modal Small Mobile Styles */
             #videoModal .lightbox-content {
                 width: 98%;
+                padding-bottom: 56.25%; /* Maintain 16:9 ratio */
             }
             
             #videoModal iframe {
