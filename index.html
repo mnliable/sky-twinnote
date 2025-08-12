@@ -220,6 +220,8 @@
         
         .album-info {
             flex: 1;
+            width: 100%;
+            min-width: 0; /* Allow flex item to shrink */
         }
         
         .album-title {
@@ -249,6 +251,17 @@
         .music-player audio {
             width: 100% !important;
             max-width: 100%;
+        }
+        
+        /* Force audio player container to be full width */
+        .album-info {
+            width: 100%;
+        }
+        
+        .album-info audio {
+            width: 100% !important;
+            max-width: 100%;
+            min-width: 100%;
         }
         
         audio::-webkit-media-controls-panel {
@@ -548,6 +561,18 @@
                 height: 150px;
             }
             
+            .album-info {
+                width: 100%;
+                padding: 0 10px;
+            }
+            
+            .album-info audio {
+                width: 100% !important;
+                max-width: 100%;
+                min-width: 100%;
+                margin: 10px 0;
+            }
+            
             .photo-gallery {
                 grid-template-columns: 1fr;
             }
@@ -607,6 +632,24 @@
             .lightbox-close {
                 min-width: 44px;
                 min-height: 44px;
+            }
+        }
+        
+        /* Mobile audio player full width override */
+        @media (max-width: 480px) {
+            .music-player {
+                padding: 15px;
+            }
+            
+            .album-info {
+                width: 100%;
+                padding: 0;
+            }
+            
+            .album-info audio {
+                width: 100vw !important;
+                max-width: calc(100vw - 30px);
+                margin: 10px 0;
             }
         }
         
